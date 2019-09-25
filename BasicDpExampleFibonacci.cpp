@@ -7,15 +7,10 @@ int DP[ 100 ] ;
 
 int fun1( int n )
 {
-    if( n == 0 )
+    if( n <= 1 )
     {
-        return 0 ;
+        return n ;
     }
-    if( n == 1 )
-    {
-        return 1 ;
-    }
-
 
     if( DP[ n ] != -1 )
     {
