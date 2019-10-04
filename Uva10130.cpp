@@ -69,7 +69,7 @@ vl v ;
 int t, n, m, a ;
 int cap ;
 int P[ 1005 ], W[ 1005 ] ;
-int DP[ 1005 ][ 1005 ] ;
+int DP[ 1005 ][ 50 ] ;
 
 int Fun( int pos, int cap_now )
 {
