@@ -77,6 +77,8 @@ stack < ll > Stk ;
 multiset < ll > S ;
 multiset < ll > :: iterator it ;
 
+----------------------------------------Iterative--------------------------------------
+    
 ll n, a, total ;
 ll DP[ 10 ][ 100005 ] ;
 
@@ -116,6 +118,53 @@ int main()
     {
         calcultion() ;
     }
+
+    return 0 ;
+}
+
+-----------------------------------------Recursive---------------------------------------
+
+ll a, n, m, total ;
+ll DP[ 10 ][ 7500 ] ;
+
+ll calculation( ll pos , ll amount )
+{
+    if( pos >= n )
+    {
+        if( amount == 0 )
+            return 1 ;
+        else
+            return 0 ;
+    }
+
+    if( DP[ pos ][ amount ] != -1 )
+        return DP[ pos ][ amount ] ;
+
+    ll r1 = 0 , r2 = 0 ;
+    if( amount - v[ pos ] >= 0 )
+    {
+        r1 = calculation( pos , amount - v[ pos ] ) ;
+    }
+
+    r2 = calculation( pos + 1 , amount ) ;
+    return DP[ pos ][ amount ] = r1 + r2 ;
+}
+
+int main()
+{
+    CIN ;
+    n = 5 ;
+    v.pb( 1 ) ;
+    v.pb( 5 ) ;
+    v.pb( 10 ) ;
+    v.pb( 25 ) ;
+    v.pb( 50 ) ;
+    memset( DP , -1 , sizeof DP ) ;
+    while( cin >> total )
+    {
+        pf( "%lld\n" , calculation( 0, total ) ) ;
+    }
+
 
     return 0 ;
 }
