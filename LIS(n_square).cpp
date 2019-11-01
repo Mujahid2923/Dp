@@ -64,7 +64,7 @@ template<typename T> using orderset = tree<T,null_type,less<T>,rb_tree_tag,tree_
 ///---------------------------------------------------------------
 ///sort( all( v ) ) ;
 
-vl v ;
+vl v , v1 ;
 ll arr[ 100005 ] ;
 
 void check()
@@ -103,16 +103,38 @@ int main()
     }
 
     check() ;
+    int ck = 0, val = INT_MIN ;
+    for( int i = 0 ; i < n ; i ++ )
+    {
+        if( arr[ i ] > val )
+        {
+            ck = i ;
+            val = arr[ i ] ;
+        }
+    }
 
+    v1.pb( v[ ck ] ) ;
+    for( int i = ck ; i >= 0 ; i -- )
+    {
+        if( arr[ i ] == val - 1 )
+        {
+            val -- ;
+            v1.pb( v[ i ] ) ;
+        }
+    }
 
-
+    reverse( all( v1 ) ) ;
+    for( auto x : v1 )
+    {
+        cout << x << " " ;
+    }
     return 0 ;
 }
 
 /*
 16
 0 8 4 12 2 10 6 14 1 9 5 13 3 11 7 15
-ans : 16
+ans : 6
 7
 3 4 -1 0 6 2 3
 ans : 4
