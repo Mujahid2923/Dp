@@ -102,13 +102,13 @@ ll Fun( ll pos, ll total )
     if( DP[ pos ][ total ] != -1 )
         return DP[ pos ][ total ] ;
 
-    ll r1 = 0 , r2 = 0 ;
+    ll r = 0 ;
     if( total - v[ pos ] >= 0 )
     {
-        r1 = Fun( pos , total - v[ pos ] ) ;
+        r += Fun( pos , total - v[ pos ] ) ;
     }
-    r2 = Fun( pos + 1 , total ) ;
-    return DP[ pos ][ total ] = r1 + r2 ;
+    r += Fun( pos + 1 , total ) ;
+    return DP[ pos ][ total ] = r ;
 }
 
 int main()
