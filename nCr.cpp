@@ -1,3 +1,19 @@
+
+ll nCr[ 35 ][ 35 ] ;
+
+void pre()
+{
+    for( int i = 0 ; i <= 30 ; i ++ )
+    {
+        nCr[ i ][ 0 ] = nCr[ i ][ i ] = 1 ;
+        for( int j = 1 ; j < i ; j ++ )
+        {
+            nCr[ i ][ j ] = nCr[ i - 1 ][ j ] + nCr[ i - 1 ][ j - 1 ] ;
+        }
+    }
+}
+
+
 #include<bits/stdc++.h>
 using namespace std;
 
