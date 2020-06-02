@@ -1,3 +1,23 @@
+int Fun( int i, int j )
+{
+   if( i == s1.size() || j == s2.size() ) return 0 ;
+   if( dp[ i ][ j ] != -1 ) return dp[ i ][ j ] ;
+   int ans = 0 ;
+   if( s1[ i ] == s2[ j ] )
+   {
+       ans = 1 + Fun( i + 1, j + 1 ) ;
+   }
+   else
+   {
+       int r1 = Fun( i + 1, j ) ;
+       int r2 = Fun( i, j + 1 ) ;
+       ans = max( r1, r2 ) ;
+   }
+   return dp[ i ][ j ] = ans ;
+}
+
+
+
 ///https://www.spoj.com/problems/CRSCNTRY/en/
 #include<bits/stdc++.h>
 using namespace std;
@@ -45,6 +65,7 @@ using namespace std;
 
 int t, n, m, temp ;
 vector < int > A, B ;
+
 int Fun()
 {
     int n = A.size() ;
