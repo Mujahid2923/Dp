@@ -140,3 +140,56 @@ ans : 4
 */
 
 
+**************************---------------------------------------N^2 recursive -----------------------****************************
+
+vi v ;
+int n, a ;
+int DP[ 1005 ][ 1005 ] ;
+
+int Fun( int pos, int val )
+{
+    if( pos == n )
+    {
+        return 0 ;
+    }
+    if( DP[ pos ][ val ] != 0 )
+    {
+        return DP[ pos ][ val ] ;
+    }
+    int r1 = 0, r2 ;
+    if( v[ pos ] > val )
+    {
+        r1 = 1 + Fun( pos + 1, v[ pos ] ) ;
+    }
+    r2 = Fun( pos + 1, val ) ;
+    return DP[ pos ][ val ] = max( r1, r2 ) ;
+}
+
+int main()
+{
+    CIN ;
+    zero( DP ) ;
+    cin >> n ;
+    for( int i = 0 ; i < n ; i ++ )
+    {
+        cin >> a ;
+        v.pb( a ) ;
+    }
+
+    cout << Fun( 0, INT_MIN ) << endl ;
+
+
+
+    return 0 ;
+}
+
+/*
+16
+0 8 4 12 2 10 6 14 1 9 5 13 3 11 7 15
+ans : 6
+7
+3 4 -1 0 6 2 3
+ans : 4
+*/
+
+
