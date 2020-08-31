@@ -1,3 +1,41 @@
+------------------- string combination and permutation -------------------------
+   
+ void Input()
+{
+    cin >> s ;
+    n = s.size() ;
+}
+
+void Combination( string ps, string str )
+{
+    int n = str.size() ;
+    cout << ps << endl ;
+    for( int i = 0 ; i < n ; i ++ )
+    {
+        Combination( ps + str[ i ], str.substr( i + 1 ) ) ;
+    }
+}
+void Permutaion( string ps, string str )
+{
+    int n = str.size() ;
+    if( n == 0 ) cout << ps << endl ;
+    for( int i = 0 ; i < n ; i ++ )
+    {
+        Permutaion( ps + str[ i ], str.substr( 0, i ) + str.substr( i + 1, n ) ) ;
+    }
+}
+
+void Calculation()
+{
+    cout << "Combination -> " << endl ;
+    Combination( "", s ) ;
+    cout << "Permutaion -> " << endl ;
+    Permutaion( "", s ) ;
+}
+
+
+---------------------------------------******************--------------------------------------------
+
 ///Uva10664
 #include<bits/stdc++.h>
 using namespace std;
