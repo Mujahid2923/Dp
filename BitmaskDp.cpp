@@ -1,4 +1,5 @@
------- ****** http://lightoj.com/volume_showproblem.php?problem=1011 ****** ----------
+/// ------ ****** http://lightoj.com/volume_showproblem.php?problem=1011 ****** ----------
+
 int T, n, k ;
 int arr[ 17 ][ 17 ] ;
 int dp[ 1 << 17 ] ;
@@ -75,7 +76,7 @@ int main()
     return 0 ;
 }
 
------- ****** https://www.codechef.com/problems/TSHIRTS ****** ----------
+/// ------ ****** https://www.codechef.com/problems/TSHIRTS ****** ----------
 
 
 int n, x, test ;
