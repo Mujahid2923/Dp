@@ -117,13 +117,13 @@ ll Fun( int pos, int mask )
     if( pos == 101 ) return 0 ;
     if( dp[ pos ][ mask ] != -1 ) return dp[ pos ][ mask ] ;
 
-    ll ans = Fun( pos + 1, mask ) ;
+    ll ans = Fun( pos + 1, mask ) ; // I don't take every t-shirt ( exclusive )
 
     for( auto x : adj[ pos ] )
     {
         if( !check( mask, x ) )
         {
-            ans = ( ans + Fun( pos + 1, Set( mask, x ) ) ) % MOD ;
+            ans = ( ans + Fun( pos + 1, Set( mask, x ) ) ) % MOD ; // ( Inclusive )
         }
     }
 
